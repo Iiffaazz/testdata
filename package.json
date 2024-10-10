@@ -1,4 +1,14 @@
+
 {
+  "name": "dchain-data",
+  "version": "0.0.1",
+  "private": true,
+  "scripts": {
+    "start": "node app.js",
+    "dev": "nodemon app.js",
+    "migrate": "npx sequelize-cli db:migrate --config=config/config.js --env development_database1 --migrations-path=migrations/migrations1",
+    "migrate2": "npx sequelize-cli db:migrate --config=config/config.js --env development_database2 --migrations-path=migrations/migrations2"
+  },
   "dependencies": {
     "dotenv": "^16.4.5",
     "mysql2": "^3.11.3",
