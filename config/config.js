@@ -1,4 +1,8 @@
-const env = require('dotenv').config().parsed;
+const env = require("dotenv").config().parsed;
+
+if (!env) {
+  throw new Error("⚠️ Couldn't find .env file ⚠️");
+}
 
 module.exports = {
   development_database1: {
@@ -8,9 +12,9 @@ module.exports = {
     host: env.DB_HOST_DATABASE_1,
     port: env.DB_PORT_DATABASE_1,
     dialect: env.DB_DIALECT_DATABASE_1,
-    dialectModule: require('mysql2'),
-    migrationStoragePath: 'migrations/migrations1',
-    seederStoragePath: 'seeders/seeder1',
+    dialectModule: require("mysql2"),
+    migrationStoragePath: "migrations/migrations1",
+    seederStoragePath: "seeders/seeder1",
   },
   development_database2: {
     username: env.DB_USERNAME_DATABASE_2,
@@ -19,24 +23,23 @@ module.exports = {
     host: env.DB_HOST_DATABASE_2,
     port: env.DB_PORT_DATABASE_2,
     dialect: env.DB_DIALECT_DATABASE_2,
-    dialectModule: require('mysql2'),
-    migrationStoragePath: 'migrations/migrations2',
-    seederStoragePath: 'seeders/seeder2',
+    dialectModule: require("mysql2"),
+    migrationStoragePath: "migrations/migrations2",
+    seederStoragePath: "seeders/seeder2",
   },
-    development_database3: {
-      username: env.DB_USERNAME_DATABASE_3,
-      password: env.DB_PASSWORD_DATABASE_3,
-      database: env.DB_NAME_DATABASE_3,
-      host: env.DB_HOST_DATABASE_3,
-      port: env.DB_PORT_DATABASE_3,
-      dialect: env.DB_DIALECT_DATABASE_3,
-      dialectModule: require('mysql2'),
-    },
-
+  development_database3: {
+    username: env.DB_USERNAME_DATABASE_3,
+    password: env.DB_PASSWORD_DATABASE_3,
+    database: env.DB_NAME_DATABASE_3,
+    host: env.DB_HOST_DATABASE_3,
+    port: env.DB_PORT_DATABASE_3,
+    dialect: env.DB_DIALECT_DATABASE_3,
+    dialectModule: require("mysql2"),
+  },
   test: {
     username: env.DB_USERNAME,
     password: env.DB_PASSWORD,
-    database: env.DB_NAME,
+    database: env.DB_NAME, // Ensure DB_NAME is defined in your .env if you use this
     host: env.DB_HOST,
     port: env.DB_PORT,
     dialect: env.DB_DIALECT,
@@ -45,7 +48,7 @@ module.exports = {
   production: {
     username: env.DB_USERNAME,
     password: env.DB_PASSWORD,
-    database: env.DB_NAME,
+    database: env.DB_NAME, // Ensure DB_NAME is defined in your .env if you use this
     host: env.DB_HOST,
     port: env.DB_PORT,
     dialect: env.DB_DIALECT,
